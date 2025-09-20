@@ -32,7 +32,7 @@ class UAPClient(asyncio.DatagramProtocol):
         self.stdin_task = None
         self.is_tty = sys.stdin.isatty()
         self.closing_sent = False
-        self.file_send_delay = 0.0  # seconds; set to small value (e.g., 0.001) to throttle file input
+        self.file_send_delay = float(os.getenv("UAP_FILE_SEND_DELAY", "0.0"))  # seconds; set to small value (e.g., 0.001) to throttle file input
 
     # Logical clock helpers
     def bump_clock(self):
