@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Launcher: ./client <hostname> <portnum>
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+exec python3 "$SCRIPT_DIR/client_thread.py" "$@"
