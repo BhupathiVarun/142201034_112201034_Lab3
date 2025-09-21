@@ -65,6 +65,7 @@ class UAPClient(asyncio.DatagramProtocol):
 
         # Global rule: GOODBYE from server => Closed (from any state)
         if cmd == CMD_GOODBYE:
+            #print("GOODBYE received from server")
             self.state = ClientState.CLOSED
             self.cancel_timer()
             self.shutdown()
@@ -152,9 +153,11 @@ class UAPClient(asyncio.DatagramProtocol):
             while True:
                 line = await reader.readline()
                 if not line:
-                    print("eof")
+                    
                     self.bump_clock()  # EOF event
                     await self.send_goodbye_and_enter_closing()
+                    print("GOODBYE received from server")
+                    print("eof")
                     return
                 s = line.rstrip(b"\n")
                 # STDIN event
