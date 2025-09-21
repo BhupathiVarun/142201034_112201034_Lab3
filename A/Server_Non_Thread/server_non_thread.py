@@ -10,7 +10,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if ROOT not in sys.path:
 	sys.path.insert(0, ROOT)
 
-from shared.uap import *  # MAGIC, VERSION, encode/split_packet, CMD_*
+from A.shared.uap import *  # MAGIC, VERSION, encode/split_packet, CMD_*
 
 # Configurable inactivity timeout before server closes a session with GOODBYE
 SESSION_TIMEOUT = float(os.environ.get("UAP_SESSION_TIMEOUT", "15.0"))  # seconds
