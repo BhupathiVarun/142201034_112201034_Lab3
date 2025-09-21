@@ -6,7 +6,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
-from shared.uap import *  # MAGIC, VERSION, encode/split_packet, CMD_*
+from B.shared.uap import *  # MAGIC, VERSION, encode/split_packet, CMD_*
 
 # Idle time before the server closes a session with GOODBYE.
 # Made configurable for interactive testing; defaults to a more forgiving value.
